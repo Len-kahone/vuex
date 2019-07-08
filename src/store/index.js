@@ -30,6 +30,13 @@ Vue.use(Vuex)
                return state.todos.find(item=>item.id===id)
             }
         }
+    },
+    actions:{
+        asyncIncrease({commit},params){
+           setTimeout(()=> {
+             commit('increase', params)
+           }, 1000)
+        }
     }
 })
 

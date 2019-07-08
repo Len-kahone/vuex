@@ -6,13 +6,14 @@
         <p>{{isdone}}</p>
         <p>{{getTodoById(1).text}}</p>
         <button @click="increase">自增</button>
+        <button @click="asyncIncrease({size:3})">异步自增</button>
         <button @click="change">改变</button>
     </div>
 
 </template>
 
 <script>
-import {mapState,mapGetters,mapMutations} from "vuex"
+import {mapState,mapGetters,mapMutations,mapActions} from "vuex"
 export default {
     data(){
         return {
@@ -26,7 +27,11 @@ export default {
                 size:3
             })
         },
-        ...mapMutations(["change"])
+        ...mapMutations(["change"]),
+        // ...mapActions(["asyncIncrease"]),
+        asyncIncrease(params){
+            this.$store.dispatch("asyncIncrease",params)
+        }
 
     },
     computed:{
