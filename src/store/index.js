@@ -1,9 +1,13 @@
 import Vue from "vue"
 import Vuex from "vuex"
+import {moduleA} from "./modules/a"
 import INCREASE from "./mutation-type"
 
 Vue.use(Vuex)
  const store=new Vuex.Store({
+     modules:{
+         moduleA
+     },
     state:{
         count:10,
         msg:"hello world",
